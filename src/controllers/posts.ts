@@ -32,11 +32,11 @@ export const getAllPosts = async (req: Request, res: Response) => {
     } 
 
     const posts = await Post
-    .find({}, '-comments')
-    .sort({createdAt: 'descending'})
-    .limit(limit)
-    .skip(limit * (page - 1))
-    .populate('author', 'userName');
+        .find({}, '-comments')
+        .sort({createdAt: 'descending'})
+        .limit(limit)
+        .skip(limit * (page - 1))
+        .populate('author', 'userName');
 
     const totalCount = await Post.countDocuments();
 

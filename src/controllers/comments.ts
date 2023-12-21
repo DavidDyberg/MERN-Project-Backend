@@ -30,8 +30,6 @@ export const deleteComment = async (req: Request, res: Response) => {
     const { userId } = req;
     assertDefined(userId)
 
-    
-
     const post = await Post.findById(postId);
 
     if (!post) {
