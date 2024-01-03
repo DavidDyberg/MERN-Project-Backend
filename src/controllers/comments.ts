@@ -48,7 +48,7 @@ export const deleteComment = async (req: Request, res: Response) => {
 
     comment.deleteOne()
 
-    const updateedPost = await post.save()
+    const updatedPost = await post.save()
 
-    return res.status(200).json(updateedPost)
+    return res.status(200).json(updatedPost)
 }

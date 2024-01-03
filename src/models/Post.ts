@@ -21,10 +21,17 @@ const CommentSchema = new Schema<IComment>({
     timestamps: true
 })
 
+interface Image {
+    mimeType: string,
+    size: number;
+    id: Types.ObjectId
+}
+
 interface IPost extends Document {
     title: string;
     link?:string;
     body?:string;
+    image?: Image;
     author: Types.ObjectId;
     createdAt: Date;
     updatedAt: Date;
@@ -55,6 +62,17 @@ const PostShcema = new Schema<IPost, IPostModel>({
     body: {
         type: String,
     },
+   image: {
+    mimeType: {
+        type: String
+    },
+    size: {
+        type: Number
+    },
+    id: {
+        type: Schema.Types.ObjectId
+    }
+   },
     author: {
         type: Schema.Types.ObjectId,
         ref: 'User',
